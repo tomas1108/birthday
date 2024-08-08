@@ -76,28 +76,23 @@
     <script src="js/typed.min.js"></script>
     <script src="js/script.js"></script>
     <script>
-      // JavaScript to handle the countdown timer
+      let countdownEnd = new Date().getTime() + 10 * 1000; // Set countdown end time to 10 seconds from now
+
       function updateCountdown() {
-          const now = new Date();
-          const endOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23, 59, 59);
-          const timeRemaining = endOfDay - now;
+        const now = new Date().getTime();
+        const timeRemaining = countdownEnd - now;
 
-          if (timeRemaining >= 0) {
-              const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
-              const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-              const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
-              const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+        if (timeRemaining >= 0) {
+          const seconds = Math.floor(timeRemaining / 1000);
 
-              document.getElementById('days').textContent = days;
-              document.getElementById('hours').textContent = hours;
-              document.getElementById('minutes').textContent = minutes;
-              document.getElementById('seconds').textContent = seconds;
-          } else {
-              // When the countdown is over, run the script
-              document.getElementById('countdown').textContent = "Happy Birthday!";
-              triggerBirthdayActions();
-          }
+          document.getElementById("seconds").textContent = seconds;
+        } else {
+          // When the countdown is over, run the script
+          document.getElementById("countdown").textContent = "Happy Birthday!";
+          triggerBirthdayActions();
+        }
       }
+
 
 
       function triggerBirthdayActions() {
