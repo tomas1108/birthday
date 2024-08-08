@@ -119,6 +119,14 @@
                     console.error('Error playing music2:', error);
                 });
             }
+
+            // Unmute the audio after a user interaction
+            document.addEventListener('click', function() {
+                var allAudios = document.querySelectorAll('audio');
+                allAudios.forEach(audio => {
+                    audio.muted = false;
+                });
+            });
         };
         setInterval(updateCountdown, 1000);
     </script>
