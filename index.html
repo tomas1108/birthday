@@ -1,137 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <title>Happy Birthday</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
-</head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<body>
+  <body>
     <div class="container">
-        <div class="row">
-            <div id="countdown-container" class="loader">
-                <h1>COUNTDOWN TO KOY'S BIRTHDAY:</h1>
-                <div id="countdown">
-                    <span id="days" data-label="DAYS">0</span>
-                    <span id="hours" data-label="HOURS">0</span>
-                    <span id="minutes" data-label="MINUTES">0</span>
-                    <span id="seconds" data-label="SECONDS">0</span>
-                </div>
-            </div>
+      <div class="row">
+        <div id="countdown-container" class="loader">
+          <h1>COUNTDOWN TO KOY'S BIRTHDAY 🎂🎂🎂🎂</h1>
+          <div id="countdown">
+            <span id="days" data-label="DAYS">0</span>
+            <span id="hours" data-label="HOURS">0</span>
+            <span id="minutes" data-label="MINUTES">0</span>
+            <span id="seconds" data-label="SECONDS">0</span>
+          </div>
         </div>
+      </div>
     </div>
     <audio class="song" controls loop>
-        <source src="music.mp3">
-        Your browser isn't invited for super fun audio time.
+      <source src="music4.mp3" />
+      Your browser isn't invited for super fun audio time.
     </audio>
-    <audio  preload="auto" class="song2" controls loop>
-        <source src="music2.mp3">
-        Your browser isn't invited for super fun audio time.
+    <audio preload="auto" class="song2" controls loop>
+      <source src="music3.mp3" />
+      Your browser isn't invited for super fun audio time.
     </audio>
     <canvas id="confetti"></canvas>
     <div class="main">
-        <div class="container pt-5">
-            <div class="row">
+      <div class="container pt-5">
+        <div class="row">
+          <div class="col-12 col-xl-6 mx-auto">
+            <img src="img/banner.png" alt="" />
+          </div>
 
-                <div class="col-12 col-xl-6 mx-auto">
-                    <img src="img/banner.png" alt="">
-                </div>
+          <div class="col-12 text-center">
+            <div id="name" class="area">😻😻THU TRANG😻😻</div>
+          </div>
 
-                <div class="col-12 text-center">
-                    <div id="name" class="area">THU TRANG</div>
-                </div>
-
-                <div class="col-12 text-center">
-                    <div class="type-wrap">
-                        <div id="typed-strings" class="typing">
-                            <h2>Happy Birthday <i id="nae">Koyy</i></h2>
-                            <h2>Have a wonderful day</h2>
-                            <h2>Wishing you all the best on your special day.</h2>
-                            <h2>May all your dreams come true.</h2>
-                            <h2>Enjoy every moment to the fullest.</h2>
-                        </div>
-                        <span id="typed" style="white-space:pre;"></span>
-                    </div>
-                </div>
-
-                <div class="col-12 col-xl-3 cake">
-                    <img src="img/cake.gif" alt="">
-                </div>
+          <div class="col-12 text-center">
+            <div class="type-wrap">
+              <div id="typed-strings" class="typing">
+                <h2>Happy Birthday <i id="nae">Koyy</i></h2>
+                <h2>Have a wonderful day</h2>
+                <h2>Wishing you all the best on your special day.</h2>
+                <h2>May all your dreams come true.</h2>
+                <h2>Enjoy every moment to the fullest.</h2>
+                <h2>Chúc bà 22 tuổi thật là đẹp</h2>
+                <h2>Bỏ những chuyện cũ , buồn qua nhé !</h2>
+                <h2>Tự tin lên và vui vẻ hơn </h2>
+                <h2>CHÚC BÀ TUÔI MỚI CÓ TẤT CẢ</h2>
             </div>
+              <span id="typed" style="white-space: pre"></span>
+            </div>
+          </div>
+
+          <div class="col-12 col-xl-3 cake">
+            <img src="img/cake.gif" alt="" />
+          </div>
         </div>
-        <img src="img/Balloon-Border.png" width="100%" class="balloon-border">
+      </div>
+      <img src="img/Balloon-Border.png" width="100%" class="balloon-border" />
     </div>
+
+    <!-- Container for falling images -->
+    <div id="falling-images-container"></div>
+    <div id="images-container"></div>
 
     <script src="https://unpkg.com/magic-snowflakes/dist/snowflakes.min.js"></script>
     <script src="js/jquery.js"></script>
     <script src="js/typed.min.js"></script>
     <script src="js/script.js"></script>
     <script>
-        // JavaScript to handle the countdown timer
-        function updateCountdown() {
-            const now = new Date();
-            const endOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23, 59, 59);
-            const timeRemaining = endOfDay - now;
+      // JavaScript to handle the countdown timer
+      function updateCountdown() {
+          const now = new Date();
+          const endOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23, 59, 59);
+          const timeRemaining = endOfDay - now;
 
-            if (timeRemaining >= 0) {
-                const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+          if (timeRemaining >= 0) {
+              const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+              const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+              const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+              const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
 
-                document.getElementById('days').textContent = days;
-                document.getElementById('hours').textContent = hours;
-                document.getElementById('minutes').textContent = minutes;
-                document.getElementById('seconds').textContent = seconds;
-            } else {
-                // When the countdown is over, run the script
-                document.getElementById('countdown').textContent = "Happy Birthday!";
-                triggerBirthdayActions();
-            }
+              document.getElementById('days').textContent = days;
+              document.getElementById('hours').textContent = hours;
+              document.getElementById('minutes').textContent = minutes;
+              document.getElementById('seconds').textContent = seconds;
+          } else {
+              // When the countdown is over, run the script
+              document.getElementById('countdown').textContent = "Happy Birthday!";
+              triggerBirthdayActions();
+          }
+      }
+
+
+      function triggerBirthdayActions() {
+        $(".loader").fadeOut(1500);
+        $(".main").fadeIn("slow");
+        if (typeof sf !== "undefined") sf.destroy(); // Check if sf is defined
+        $(".balloon-border").animate(
+          {
+            top: -500,
+          },
+          8000
+        );
+
+        var audio2 = document.querySelector(".song2");
+        if (audio2) {
+          audio2.pause(); // Stop the second audio
         }
 
-        function triggerBirthdayActions() {
-            $(".loader").fadeOut(1500);
-            $(".main").fadeIn("slow");
-            if (typeof sf !== 'undefined') sf.destroy(); // Check if sf is defined
-            $('.balloon-border').animate({
-                top: -500
-            }, 8000);
-
-            var audio2 = document.querySelector('.song2');
-            if (audio2) {
-                audio2.pause(); // Stop the second audio
-            }
-
-            var audio1 = document.querySelector('.song');
-            if (audio1) {
-                audio1.play(); // Start the first audio
-            }
+        var audio1 = document.querySelector(".song");
+        if (audio1) {
+          audio1.play(); // Start the first audio
         }
 
-        window.onload = function() {
-            var audio2 = document.querySelector('.song2');
+        startFallingImages(); // Start the falling images effect
+      }
 
-            // Attempt to play the audio on load
-            audio2.play().catch(function(error) {
-                console.error('Error playing music2:', error);
+      function startFallingImages() {
+        const imagesContainer = document.getElementById("images-container");
+        const imageUrls = [
+          "t1.jpg",
+          "t2.jpg",
+          "t3.jpg",
+          "t4.jpg",
+          // Add more image URLs if needed
+        ];
 
-                // Listen for a user interaction to play the audio
-                document.addEventListener('click', function() {
-                    audio2.muted = false;
-                    audio2.play().catch(function(error) {
-                        console.error('Error playing music2:', error);
-                    });
-                }, { once: true });
-            });
-        };
+        function showImage() {
+          const img = document.createElement("img");
+          img.src = imageUrls[Math.floor(Math.random() * imageUrls.length)];
+          img.className = "random-image";
+          img.style.top = Math.random() * 100 + "vh"; // Random vertical position
+          img.style.left = Math.random() * 100 + "vw"; // Random horizontal position
+          imagesContainer.appendChild(img);
 
+          setTimeout(() => {
+            img.remove();
+          }, 5000); // Remove the image after 20 seconds
+        }
 
-        setInterval(updateCountdown, 1000);
+        setInterval(showImage, 10000); // Show a new image every 3 seconds
+      }
+
+      window.onload = function () {
+        var audio2 = document.querySelector(".song2");
+
+        // Attempt to play the audio on load
+        audio2.play().catch(function (error) {
+          console.error("Error playing music2:", error);
+
+          // Listen for a user interaction to play the audio
+          document.addEventListener(
+            "click",
+            function () {
+              audio2.muted = false;
+              audio2.play().catch(function (error) {
+                console.error("Error playing music2:", error);
+              });
+            },
+            { once: true }
+          );
+        });
+      };
+
+      setInterval(updateCountdown, 1000);
     </script>
-</body>
-
+  </body>
 </html>

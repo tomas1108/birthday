@@ -1,6 +1,6 @@
 /* customizable snowflake styling */
 .loader button {
-    width: 50%;
+    width: 10%;
     height: 100px;
     position: fixed;
     left: 50%;
@@ -210,4 +210,72 @@ img {
     #countdown span:after {
         font-size: 16px;  /* Adjust label size for smaller screens */
     }
+}
+
+
+/* Falling images styles */
+#falling-images-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Allow clicks to pass through */
+    overflow: hidden;
+    z-index: 999999;
+}
+
+.falling-image {
+    position: absolute;
+    top: -100px; /* Start off screen */
+    width: 100px; /* Adjust size as needed */
+    height: auto;
+   
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-100px);
+    }
+    100% {
+        transform: translateY(110vh); /* End off screen */
+    }
+}
+
+/* Styling for random images */
+#images-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Allow clicks to pass through */
+    overflow: hidden;
+    z-index: 999999;
+}
+
+.random-image {
+    position: absolute;
+    width: 100px; /* Adjust size as needed */
+    height: auto;
+    transition: top 2s, left 2s; /* Smooth transition to new position */
+}
+
+#t-shape {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none; /* Initially hidden */
+    width: 200px; /* Adjust size as needed */
+    height: 200px; /* Adjust size as needed */
+    z-index: 1000000;
+    pointer-events: none;
+}
+
+.t-part {
+    position: absolute;
+    width: 50px; /* Adjust size as needed */
+    height: 50px; /* Adjust size as needed */
+    background-color: transparent; /* Hidden initially */
 }
