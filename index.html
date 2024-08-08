@@ -27,7 +27,7 @@
         <source src="music.mp3">
         Your browser isn't invited for super fun audio time.
     </audio>
-    <audio class="song2" controls loop>
+    <audio  preload="auto" class="song2" controls loop>
         <source src="music2.mp3">
         Your browser isn't invited for super fun audio time.
     </audio>
@@ -114,20 +114,22 @@
 
         window.onload = function() {
             var audio2 = document.querySelector('.song2');
-            if (audio2) {
-                audio2.play().catch(function(error) {
-                    console.error('Error playing music2:', error);
-                });
-            }
 
-            // Unmute the audio after a user interaction
-            document.addEventListener('click', function() {
-                var allAudios = document.querySelectorAll('audio');
-                allAudios.forEach(audio => {
-                    audio.muted = false;
-                });
+            // Attempt to play the audio on load
+            audio2.play().catch(function(error) {
+                console.error('Error playing music2:', error);
+
+                // Listen for a user interaction to play the audio
+                document.addEventListener('click', function() {
+                    audio2.muted = false;
+                    audio2.play().catch(function(error) {
+                        console.error('Error playing music2:', error);
+                    });
+                }, { once: true });
             });
         };
+
+
         setInterval(updateCountdown, 1000);
     </script>
 </body>
